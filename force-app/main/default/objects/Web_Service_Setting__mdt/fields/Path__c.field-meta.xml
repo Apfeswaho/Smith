@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Path__c</fullName>
+    <description
+  >Path and query string appended to the Named Credential, with {placeholders} merged at runtime. {apiKey} is filled from this record; every other placeholder (e.g. {year}) must be supplied by the calling code. Values are URL-encoded when merged. Example: /holidays?api_key={apiKey}&amp;country=ZA&amp;year={year}&amp;type=national</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Path</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

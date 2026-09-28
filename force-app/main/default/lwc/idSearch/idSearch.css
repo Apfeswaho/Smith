@@ -1,0 +1,13 @@
+.id-search {
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.validation-message {
+  min-height: 1.25rem;
+}
+
+.birthday-row td {
+  background-color: rgb(235, 247, 225);
+  font-weight: 600;
+}

@@ -1,0 +1,203 @@
+<template>
+  <article class="slds-card id-search">
+    <header class="slds-card__header slds-p-around_medium">
+      <h1 class="slds-text-heading_medium">
+        Public holidays on your birth date
+      </h1>
+    </header>
+
+    <div class="slds-card__body slds-card__body_inner">
+      <section class="slds-m-bottom_large">
+        <p class="slds-text-body_regular">
+          Enter your 13-digit South African ID number. We decode your date of
+          birth, gender and citizenship status from it, then list the public
+          holidays for your birth year and tell you whether your birthday itself
+          falls on one.
+        </p>
+        <p class="slds-text-body_small slds-text-color_weak slds-m-top_x-small">
+          The Search button stays disabled until the number passes the official
+          SA ID format and checksum rules.
+        </p>
+      </section>
+
+      <section class="slds-form slds-m-bottom_large">
+        <lightning-input
+          class="id-input"
+          type="text"
+          label="SA ID Number"
+          name="idNumber"
+          value={idNumber}
+          max-length="13"
+          autocomplete="off"
+          placeholder="e.g. 8001015009087"
+          field-level-help="13 digits: YYMMDD, gender sequence, citizenship, check digit."
+          onchange={handleIdChange}
+          onblur={handleIdBlur}
+          onkeyup={handleKeyUp}
+        ></lightning-input>
+
+        <div
+          class="validation-message slds-text-color_error slds-m-top_x-small"
+          role="status"
+          aria-live="polite"
+        >
+          <template lwc:if={validationMessage}>
+            <lightning-icon
+              icon-name="utility:error"
+              size="x-small"
+              variant="error"
+              alternative-text="Invalid"
+            ></lightning-icon>
+            <span class="slds-m-left_xx-small">{validationMessage}</span>
+          </template>
+        </div>
+
+        <div class="slds-m-top_medium">
+          <lightning-button
+            class="search-button"
+            variant="brand"
+            label="Search"
+            title="Search public holidays for this ID's birth year"
+            disabled={isSearchDisabled}
+            onclick={handleSearch}
+          ></lightning-button>
+        </div>
+      </section>
+
+      <template lwc:if={isSearching}>
+        <div class="slds-is-relative slds-p-around_large">
+          <lightning-spinner
+            alternative-text="Searching"
+            size="medium"
+          ></lightning-spinner>
+        </div>
+      </template>
+
+      <template lwc:if={errorMessage}>
+        <div
+          class="error-message slds-notify slds-notify_alert slds-alert_error"
+          role="alert"
+        >
+          <span class="slds-assistive-text">error</span>
+          <h2>{errorMessage}</h2>
+        </div>
+      </template>
+
+      <template lwc:if={result}>
+        <section class="results slds-m-top_large">
+          <h2 class="slds-text-heading_small slds-m-bottom_small">
+            Decoded from your ID number
+          </h2>
+          <dl class="decoded slds-dl_horizontal">
+            <dt class="slds-dl_horizontal__label slds-text-color_weak">
+              Date of birth
+            </dt>
+            <dd class="slds-dl_horizontal__detail decoded-dob">
+              <lightning-formatted-date-time
+                value={result.dateOfBirth}
+                year="numeric"
+                month="long"
+                day="numeric"
+                time-zone="UTC"
+              ></lightning-formatted-date-time>
+            </dd>
+            <dt class="slds-dl_horizontal__label slds-text-color_weak">
+              Gender
+            </dt>
+            <dd class="slds-dl_horizontal__detail decoded-gender">
+              {result.gender}
+            </dd>
+            <dt class="slds-dl_horizontal__label slds-text-color_weak">
+              Citizenship
+            </dt>
+            <dd class="slds-dl_horizontal__detail decoded-citizenship">
+              {result.citizenshipStatus}
+            </dd>
+            <dt class="slds-dl_horizontal__label slds-text-color_weak">
+              Times searched
+            </dt>
+            <dd class="slds-dl_horizontal__detail decoded-count">
+              {result.searchCount}
+            </dd>
+          </dl>
+
+          <h2
+            class="slds-text-heading_small slds-m-top_large slds-m-bottom_small"
+          >
+            Public holidays in {result.birthYear}
+          </h2>
+
+          <template lwc:if={hasHolidays}>
+            <template lwc:if={result.isBirthdayOnHoliday}>
+              <div
+                class="birthday-match slds-box slds-theme_success slds-m-bottom_small"
+                role="status"
+              >
+                Your birthday falls on a public holiday!
+              </div>
+            </template>
+            <template lwc:else>
+              <p
+                class="birthday-no-match slds-text-body_small slds-text-color_weak slds-m-bottom_small"
+              >
+                Your birthday is not a public holiday in {result.birthYear}.
+              </p>
+            </template>
+
+            <table
+              class="holiday-table slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped"
+            >
+              <thead>
+                <tr class="slds-line-height_reset">
+                  <th scope="col">Date</th>
+                  <th scope="col">Holiday</th>
+                  <th scope="col">Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                <template for:each={holidayRows} for:item="holiday">
+                  <tr
+                    key={holiday.key}
+                    class={holiday.rowClass}
+                    data-on-birthday={holiday.isOnDateOfBirth}
+                  >
+                    <td>
+                      <lightning-formatted-date-time
+                        value={holiday.holidayDate}
+                        weekday="short"
+                        year="numeric"
+                        month="short"
+                        day="numeric"
+                        time-zone="UTC"
+                      ></lightning-formatted-date-time>
+                    </td>
+                    <td>
+                      {holiday.name}
+                      <template lwc:if={holiday.isOnDateOfBirth}>
+                        <lightning-badge
+                          class="slds-m-left_x-small"
+                          label="Your birthday"
+                        ></lightning-badge>
+                      </template>
+                    </td>
+                    <td>{holiday.holidayType}</td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
+          </template>
+          <template lwc:else>
+            <div
+              class="no-holiday-data slds-box slds-theme_shade"
+              role="status"
+            >
+              Public holiday data for {result.birthYear} is not available yet.
+              Your search has been recorded; please check back once that year
+              has been loaded.
+            </div>
+          </template>
+        </section>
+      </template>
+    </div>
+  </article>
+</template>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Holiday_Name__c</fullName>
+    <description
+  >Full holiday name as returned by Calendarific (the record Name is the same value truncated to 80 characters).</description>
+    <externalId>false</externalId>
+    <label>Holiday Name</label>
+    <length>255</length>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

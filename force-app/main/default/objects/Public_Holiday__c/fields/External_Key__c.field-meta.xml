@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>External_Key__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description
+  >Composite key (country-date-slugified name, e.g. ZA-2024-12-25-christmas-day) so the sync job can re-run via upsert without creating duplicates. Includes the name because Calendarific can return more than one holiday on the same date.</description>
+    <externalId>true</externalId>
+    <label>External Key</label>
+    <length>255</length>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

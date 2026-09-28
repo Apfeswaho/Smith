@@ -1,0 +1,62 @@
+{
+  "type": "sfdc_cms__view",
+  "title": "Service Not Available",
+  "contentBody": {
+    "component": {
+      "children": [
+        {
+          "children": [
+            {
+              "attributes": {
+                "backgroundImageConfig": "",
+                "backgroundImageOverlay": "rgba(0,0,0,0)",
+                "componentSpacerSize": "",
+                "layoutDirectionDesktop": "row",
+                "layoutDirectionMobile": "column",
+                "layoutDirectionTablet": "column",
+                "maxContentWidth": "",
+                "sectionColumnGutterWidth": "",
+                "sectionConfig": "{\"UUID\":\"33449b05-e49d-49c0-9d0f-8e7b3201b84b\",\"columns\":[{\"UUID\":\"42002260-7b2c-42c8-9bfc-11b1bda49f50\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":null}]}",
+                "sectionMinHeight": "",
+                "sectionVerticalAlign": "flex-start"
+              },
+              "children": [
+                {
+                  "children": [
+                    {
+                      "attributes": {
+                        "imageInfos": "",
+                        "richTextValue": "<div style=\"display: flex; align-items: center; flex-direction: column; margin: 60px 25px 40px 25px;\">\n\t<div style=\"background: url(assets/img/serviceNotAvailable.svg) center no-repeat !important; background-size: contain; height: 331px; width: 100%; max-width: 538px;\"></div>\n</div>\n<div style=\"margin: 0 25px; text-align: center;\">\n\t<h1><b style=\"font-size: 2em\">Looks like the site is temporarily unavailable</b></h1>\n\t<br/>\n\t<p><span style=\"font-size: 1.5em;\">Please try again in a bit.</span></p>\n</div>"
+                      },
+                      "definition": "community_builder:htmlEditor",
+                      "id": "9cdd24b6-251e-44f7-ad36-8806cc5aa165",
+                      "type": "component"
+                    }
+                  ],
+                  "id": "42002260-7b2c-42c8-9bfc-11b1bda49f50",
+                  "name": "col1",
+                  "title": "Column 1",
+                  "type": "region"
+                }
+              ],
+              "definition": "community_layout:section",
+              "id": "33449b05-e49d-49c0-9d0f-8e7b3201b84b",
+              "type": "component"
+            }
+          ],
+          "id": "f1b9b67b-d99b-4fa8-9c52-3f7255ef4664",
+          "name": "content",
+          "title": "Content",
+          "type": "region"
+        }
+      ],
+      "definition": "community_layout:sldsFlexibleLayout",
+      "id": "2ad28e68-eb04-4b26-b375-8daa6dc5fd81",
+      "type": "component"
+    },
+    "dataProviders": [],
+    "themeLayoutType": "ServiceNotAvailable",
+    "viewType": "service-not-available"
+  },
+  "urlName": "service-not-available"
+}

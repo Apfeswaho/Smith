@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Citizenship_Status__c</fullName>
+    <description
+  >Decoded from digit 11 of the ID number (0 citizen, 1 permanent resident, 2 refugee).</description>
+    <externalId>false</externalId>
+    <label>Citizenship Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SA Citizen</fullName>
+                <default>false</default>
+                <label>SA Citizen</label>
+            </value>
+            <value>
+                <fullName>Permanent Resident</fullName>
+                <default>false</default>
+                <label>Permanent Resident</label>
+            </value>
+            <value>
+                <fullName>Refugee</fullName>
+                <default>false</default>
+                <label>Refugee</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

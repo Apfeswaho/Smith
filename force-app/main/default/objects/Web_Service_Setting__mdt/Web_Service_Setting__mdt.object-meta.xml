@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description
+  >One record per outbound web service call. Path__c is a template whose {placeholders} are merged at runtime from the record ({apiKey}) and from the calling code (e.g. {year}), so query parameters can be changed by an admin without a code change. Read only by internal/system-context code, never by guest-invoked code.</description>
+    <label>Web Service Setting</label>
+    <pluralLabel>Web Service Settings</pluralLabel>
+    <visibility>Protected</visibility>
+</CustomObject>

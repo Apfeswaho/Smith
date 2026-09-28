@@ -1,0 +1,78 @@
+{
+  "type": "sfdc_cms__view",
+  "title": "Home",
+  "contentBody": {
+    "component": {
+      "children": [
+        {
+          "children": [
+            {
+              "attributes": {
+                "backgroundImageConfig": "",
+                "backgroundImageOverlay": "rgba(0,0,0,0)",
+                "componentSpacerSize": "",
+                "layoutDirectionDesktop": "row",
+                "layoutDirectionMobile": "column",
+                "layoutDirectionTablet": "column",
+                "maxContentWidth": "",
+                "sectionColumnGutterWidth": "",
+                "sectionConfig": "{\"UUID\":\"4839817e-dcc5-4db9-a08a-49e64b35a2bb\",\"columns\":[{\"UUID\":\"644148d6-6ceb-4532-aef3-236349d7ad43\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":null}]}",
+                "sectionMinHeight": "",
+                "sectionVerticalAlign": "flex-start"
+              },
+              "children": [
+                {
+                  "children": [
+                    {
+                      "attributes": {},
+                      "definition": "c:idSearch",
+                      "id": "7d1f3f4a-2a8e-4c8f-9b2d-1e5f6a7b8c9d",
+                      "type": "component"
+                    }
+                  ],
+                  "id": "644148d6-6ceb-4532-aef3-236349d7ad43",
+                  "name": "col1",
+                  "title": "Column 1",
+                  "type": "region"
+                }
+              ],
+              "definition": "community_layout:section",
+              "id": "4839817e-dcc5-4db9-a08a-49e64b35a2bb",
+              "type": "component"
+            }
+          ],
+          "id": "c6c065a5-8d2e-45ec-b7a8-a453a3942368",
+          "name": "content",
+          "title": "Content",
+          "type": "region"
+        },
+        {
+          "children": [
+            {
+              "attributes": {
+                "customHeadTags": "",
+                "description": "Enter a South African ID number to decode it and see the public holidays for your birth year.",
+                "pageTitle": "SA ID Search - public holidays on your birth date",
+                "recordId": "{!recordId}"
+              },
+              "definition": "community_builder:seoAssistant",
+              "id": "6690cc8e-52aa-458e-b73e-8273787f7b5e",
+              "type": "component"
+            }
+          ],
+          "id": "a4025b65-0e46-42ff-8740-a79ba412648b",
+          "name": "sfdcHiddenRegion",
+          "title": "sfdcHiddenRegion",
+          "type": "region"
+        }
+      ],
+      "definition": "community_layout:sldsFlexibleLayout",
+      "id": "0cbb4ab7-40c0-4e1e-aa9b-0e9bc47e8822",
+      "type": "component"
+    },
+    "dataProviders": [],
+    "themeLayoutType": "Inner",
+    "viewType": "home"
+  },
+  "urlName": "home"
+}

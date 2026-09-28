@@ -1,0 +1,12 @@
+{
+  "packageDirectories": [
+    {
+      "path": "force-app",
+      "default": true
+    }
+  ],
+  "name": "Smith",
+  "namespace": "",
+  "sfdcLoginUrl": "https://https://withgoodness-dev-ed.trailblaze.lightning.force.com/",
+  "sourceApiVersion": "67.0"
+}

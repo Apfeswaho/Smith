@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Year__c</fullName>
+    <description
+  >Denormalised from Holiday_Date__c so the per-search lookup is a simple equality filter rather than a date range.</description>
+    <externalId>true</externalId>
+    <label>Year</label>
+    <precision>4</precision>
+    <required>true</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

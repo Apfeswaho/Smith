@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description
+  >Internal admin view of the public SA ID Search site data: searched IDs, the cached public-holiday table and integration run logs.</description>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <label>SA ID Search Admin</label>
+    <navType>Standard</navType>
+    <tabs>ID_Search__c</tabs>
+    <tabs>Public_Holiday__c</tabs>
+    <tabs>Integration_Log__c</tabs>
+    <uiType>Lightning</uiType>
+</CustomApplication>
